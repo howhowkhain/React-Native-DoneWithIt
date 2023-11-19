@@ -3,37 +3,14 @@ import {
   View,
   SafeAreaView,
 } from "react-native";
+import WelcomeScreen from "./app/screens/WelcomeScreen";
+import ViewImageScreen from "./app/screens/ViewImageScreen";
 
 export default function App() {
 
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={{
-        backgroundColor: 'dodgerblue',
-        // flex: -1,
-        width: 100,
-        height: 100,
-        // flexShrink: 1,
-        // flexGrow: 1,
-        // alignSelf: "flex-start"
-      }}>
-      </View>
-      <View style={{
-        backgroundColor: "gold",
-        // flex: 1,
-        width: 100,
-        height: 100,
-        top: 20,
-        left: 20,
-        position: "absolute"
-      }}/>
-      <View style={{
-        backgroundColor: "tomato",
-        // flex: 1,
-        width: 100,
-        height: 100,
-      }}/>
-    </SafeAreaView>
+    // <WelcomeScreen/>
+    <ViewImageScreen/>
   );
 }
 
@@ -43,8 +20,5 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    // flexWrap: "wrap",
-    // alignContent: "center"
-
   }
 })
