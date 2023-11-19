@@ -10,9 +10,11 @@ export default function App() {
     <SafeAreaView style={styles.container}>
       <View style={{
         backgroundColor: 'dodgerblue',
-        // flex: 1,
-        width: 100,
-        height: 300,
+        flex: -1,
+        width: 300,
+        height: 100,
+        // flexShrink: 1,
+        // flexGrow: 1,
         // alignSelf: "flex-start"
       }}>
       </View>
@@ -20,22 +22,10 @@ export default function App() {
         backgroundColor: "gold",
         // flex: 1,
         width: 100,
-        height: 200,
+        height: 100,
       }}/>
       <View style={{
         backgroundColor: "tomato",
-        // flex: 1,
-        width: 100,
-        height: 100,
-      }}/>
-      <View style={{
-        backgroundColor: "grey",
-        // flex: 1,
-        width: 100,
-        height: 100,
-      }}/>
-      <View style={{
-        backgroundColor: "greenyellow",
         // flex: 1,
         width: 100,
         height: 100,
@@ -50,8 +40,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    flexWrap: "wrap",
-    alignContent: "center"
+    // flexWrap: "wrap",
+    // alignContent: "center"
 
   }
 })
