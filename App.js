@@ -10,8 +10,8 @@ export default function App() {
     <SafeAreaView style={styles.container}>
       <View style={{
         backgroundColor: 'dodgerblue',
-        flex: -1,
-        width: 300,
+        // flex: -1,
+        width: 100,
         height: 100,
         // flexShrink: 1,
         // flexGrow: 1,
@@ -23,6 +23,9 @@ export default function App() {
         // flex: 1,
         width: 100,
         height: 100,
+        top: 20,
+        left: 20,
+        position: "absolute"
       }}/>
       <View style={{
         backgroundColor: "tomato",
