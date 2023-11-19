@@ -12,14 +12,15 @@ export default function App() {
         backgroundColor: 'dodgerblue',
         // flex: 1,
         width: 100,
-        height: 100,
+        height: 300,
+        alignSelf: "flex-start"
       }}>
       </View>
       <View style={{
         backgroundColor: "gold",
         // flex: 1,
         width: 100,
-        height: 100,
+        height: 200,
       }}/>
       <View style={{
         backgroundColor: "tomato",
@@ -34,6 +35,8 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: "row"
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center"
   }
 })
