@@ -1,32 +1,32 @@
 import {
   StyleSheet,
-  Text,
   View,
   SafeAreaView,
-  Image,
-  Pressable,
-  TouchableNativeFeedback,
-  Button,
-  Alert,
-  Platform,
-  StatusBar,
-  Dimensions,
-  useWindowDimensions,
 } from "react-native";
-import { useDeviceOrientation } from "@react-native-community/hooks";
 
 export default function App() {
-  console.log(useWindowDimensions());
-  const orientation = useDeviceOrientation();
+
   return (
     <SafeAreaView style={styles.container}>
-      <View
-        style={{
-          backgroundColor: "dodgerblue",
-          width: "100%",
-          height: orientation === "landscape" ? "100%" : "30%",
-        }}
-      ></View>
+      <View style={{
+        backgroundColor: 'dodgerblue',
+        // flex: 1,
+        width: 100,
+        height: 100,
+      }}>
+      </View>
+      <View style={{
+        backgroundColor: "gold",
+        // flex: 1,
+        width: 100,
+        height: 100,
+      }}/>
+      <View style={{
+        backgroundColor: "tomato",
+        // flex: 1,
+        width: 100,
+        height: 100,
+      }}/>
     </SafeAreaView>
   );
 }
@@ -34,7 +34,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
-  },
-});
+    flexDirection: "row"
+  }
+})
