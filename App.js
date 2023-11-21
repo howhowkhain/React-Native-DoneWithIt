@@ -1,16 +1,16 @@
-import {
-  StyleSheet,
-  View,
-  SafeAreaView,
-} from "react-native";
+import { StyleSheet, View, SafeAreaView, Text } from "react-native";
 import WelcomeScreen from "./app/screens/WelcomeScreen";
 import ViewImageScreen from "./app/screens/ViewImageScreen";
 
-export default function App() {
+import AppText from "./app/components/AppText";
 
+export default function App() {
   return (
     // <WelcomeScreen/>
-    <ViewImageScreen/>
+    // <ViewImageScreen/>
+    <View style={styles.container}>
+      <AppText>My React Native App</AppText>
+    </View>
   );
 }
 
@@ -20,5 +20,5 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-  }
-})
+  },
+});
