@@ -10,8 +10,8 @@ export default function App() {
     // <WelcomeScreen/>
     // <ViewImageScreen/>
     <View style={styles.container}>
-      {/* <AppText>My React Native App</AppText> */}
-      <MaterialCommunityIcons name="email" size={60} color={"dodgerblue"} />
+      <AppText>My React Native App</AppText>
+      {/* <MaterialCommunityIcons name="email" size={60} color={"dodgerblue"} /> */}
     </View>
   );
 }
