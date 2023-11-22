@@ -2,7 +2,7 @@ import { StyleSheet, View, SafeAreaView, Text } from "react-native";
 import WelcomeScreen from "./app/screens/WelcomeScreen";
 import ViewImageScreen from "./app/screens/ViewImageScreen";
 
-import AppText from "./app/components/AppText";
+import AppText from "./app/components/AppText/AppText";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 export default function App() {
