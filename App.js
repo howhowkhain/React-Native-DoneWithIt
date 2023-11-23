@@ -24,7 +24,7 @@ export default function App() {
       {/* <AppText>My React Native App</AppText> */}
       {/* <MaterialCommunityIcons name="email" size={60} color={"dodgerblue"} /> */}
       {/* <ButtonCustom>Submit</ButtonCustom> */}
-      <AppCard/>
+      <AppCard />
     </View>
   );
 }
@@ -35,6 +35,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: '#f8f4f4'
+    backgroundColor: "#fff",
   },
 });
