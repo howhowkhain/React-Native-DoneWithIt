@@ -10,7 +10,7 @@ import {
 } from "react-native";
 
 import colors from "../config/colors";
-import ButtonCustom from "../components/ButtonCustom";
+import AppButton from "../components/AppButton";
 
 function WelcomeScreen() {
   const { width, height } = useWindowDimensions();
@@ -19,19 +19,19 @@ function WelcomeScreen() {
       style={styles.background}
       source={require("../assets/background.jpg")}
       resizeMode="cover"
-      blurRadius={5}
+      blurRadius={10}
     >
       <View style={styles.logoContainer}>
         <Image source={require("../assets/logo-red.png")} style={styles.logo} />
-        <Text style={styles.title}>Sell What You Don't Need</Text>
+        <Text style={styles.tagline}>Sell What You Don't Need</Text>
       </View>
       <View style={styles.buttonsContainer}>
-        <ButtonCustom style={styles.loginBtn} color={colors.primary}>
-          Login
-        </ButtonCustom>
-        <ButtonCustom style={styles.registerBtn} color={colors.secondary}>
-          Register
-        </ButtonCustom>
+        <AppButton title="Login" onPress={() => console.log("Login")} />
+        <AppButton
+          title="Register"
+          onPress={() => console.log("Register")}
+          color="secondary"
+        />
       </View>
     </ImageBackground>
   );
@@ -44,20 +44,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   buttonsContainer: {
-    width: "90%",
-    alignItems: "center",
+    width: "100%",
     paddingBottom: 30,
-  },
-  loginBtn: {
-    width: "90%",
-    height: 50,
-    borderRadius: 30,
-  },
-  registerBtn: {
-    width: "90%",
-    height: 50,
-    borderRadius: 30,
-    marginTop: 20,
   },
   logoContainer: {
     position: "absolute",
@@ -68,10 +56,10 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
   },
-  title: {
-    fontWeight: "800",
-    fontSize: 21,
-    marginTop: 20,
+  tagline: {
+    fontSize: 25,
+    fontWeight: "600",
+    paddingVertical: 20,
   },
 });
 
