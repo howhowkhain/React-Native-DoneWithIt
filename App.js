@@ -8,6 +8,7 @@ import {
 } from "react-native";
 
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 import WelcomeScreen from "./app/screens/WelcomeScreen";
 import ViewImageScreen from "./app/screens/ViewImageScreen";
@@ -17,10 +18,15 @@ import AppCard from "./app/components/AppCard";
 import colors from "./app/config/colors";
 import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
 import MessagesScreen from "./app/screens/MessagesScreen";
+import Screen from "./app/components/Screen";
 
 export default function App() {
   return (
-    <MessagesScreen />
+    <Screen>
+      <GestureHandlerRootView>
+        <MessagesScreen />
+      </GestureHandlerRootView>
+    </Screen>
     // <WelcomeScreen />
     // <ViewImageScreen />
     // <ListingDetailsScreen />
