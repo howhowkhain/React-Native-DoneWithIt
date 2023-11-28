@@ -19,12 +19,14 @@ import colors from "./app/config/colors";
 import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
 import MessagesScreen from "./app/screens/MessagesScreen";
 import Screen from "./app/components/Screen";
+import MyAccountScreen from "./app/screens/MyAccountScreen";
 
 export default function App() {
   return (
     <Screen>
       <GestureHandlerRootView>
-        <MessagesScreen />
+        {/* <MessagesScreen /> */}
+        <MyAccountScreen />
       </GestureHandlerRootView>
     </Screen>
     // <WelcomeScreen />
