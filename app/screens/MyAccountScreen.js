@@ -1,57 +1,78 @@
 import React from "react";
-import { View, FlatList } from "react-native";
+import { View, FlatList, StyleSheet } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import colors from "../config/colors";
 
 import ListItem from "../components/ListItem";
+import Icon from "../components/Icon";
+import ListItemSeparator from "../components/ListItemSeparator";
 
-const myAccountsElements = [
+const menuItems = [
   {
-    id: 1,
-    title: "Mosh hamedani",
-    subtitle: "programmingwithmosh@gmail.com",
-    image: require("../assets/mosh.jpg"),
-  },
-  {
-    id: 2,
     title: "My Listings",
-    subtitle: "",
-    iconName: "format-list-bulleted",
-    color: colors.primary,
+    icon: {
+      name: "format-list-bulleted",
+      backgroundColor: colors.primary,
+    },
   },
   {
-    id: 3,
     title: "My Messages",
-    subtitle: "",
-    iconName: "email",
-    color: colors.secondary,
-  },
-  {
-    id: 4,
-    title: "Log Out",
-    subtitle: "",
-    iconName: "logout",
-    color: colors.lemon,
+    icon: {
+      name: "email",
+      backgroundColor: colors.secondary,
+    },
   },
 ];
 
 function MyAccountScreen(props) {
   return (
-    <FlatList
-      data={myAccountsElements}
-      keyExtractor={(item) => item.id}
-      renderItem={({ item }) => (
+    // <Icon
+    //   name={"format-list-bulleted"}
+    //   size={50}
+    //   iconColor={colors.white}
+    //   backgroundColor={colors.primary}
+    // />
+    <View>
+      <View style={styles.container}>
         <ListItem
-          {...(item.image && { image: item.image })}
-          {...(item.iconName && { iconName: item.iconName })}
-          title={item.title}
-          subTitle={item.subtitle}
-          {...(item.color && { color: item.color })}
+          title="Mosh Hamedani"
+          subTitle={"programmingwithmosh@gmail.com"}
+          image={require("../assets/mosh.jpg")}
         />
-      )}
-    />
+      </View>
+      <FlatList
+        data={menuItems}
+        keyExtractor={(menuItem) => menuItem.title}
+        renderItem={({ item }) => (
+          <ListItem
+            title={item.title}
+            IconComponent={
+              <Icon
+                name={item.icon.name}
+                backgroundColor={item.icon.backgroundColor}
+              />
+            }
+          />
+        )}
+        ItemSeparatorComponent={ListItemSeparator}
+      />
+      <View style={styles.container}>
+        <ListItem
+          title={"Log Out"}
+          IconComponent={
+            <Icon name={"logout"} backgroundColor={colors.lemon} />
+          }
+        />
+      </View>
+    </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    marginVertical: 20,
+  },
+});
 
 export default MyAccountScreen;

@@ -4,7 +4,6 @@ import AppText from "./AppText/AppText";
 
 const AppCard = ({ title, subTitle, image }) => {
   return (
-    // <View style={styles.container}>
     <View style={styles.card}>
       <Image style={styles.image} source={image} />
       <View style={styles.detailsContainer}>
@@ -12,7 +11,6 @@ const AppCard = ({ title, subTitle, image }) => {
         <AppText style={styles.subTitle}>{subTitle}</AppText>
       </View>
     </View>
-    // </View>
   );
 };
 

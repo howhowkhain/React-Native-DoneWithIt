@@ -20,13 +20,15 @@ import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
 import MessagesScreen from "./app/screens/MessagesScreen";
 import Screen from "./app/components/Screen";
 import MyAccountScreen from "./app/screens/MyAccountScreen";
+import ListingsScreen from "./app/screens/ListingsScreen";
 
 export default function App() {
   return (
-    <Screen>
+    <Screen style={styles.screen}>
       <GestureHandlerRootView>
         {/* <MessagesScreen /> */}
-        <MyAccountScreen />
+        {/* <MyAccountScreen /> */}
+        <ListingsScreen />
       </GestureHandlerRootView>
     </Screen>
     // <WelcomeScreen />
@@ -49,11 +51,15 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
+  screen: {
+    backgroundColor: colors.light,
+    padding: 20,
+  },
   container: {
     // flex: 1,
     // justifyContent: "center",
     // alignItems: "center",
-    backgroundColor: "#f8f4f4",
+    backgroundColor: colors.light,
     padding: 20,
     paddingTop: 100,
   },

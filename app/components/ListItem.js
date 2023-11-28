@@ -7,31 +7,22 @@ import AppText from "./AppText/AppText";
 import colors from "../config/colors";
 
 const ListItem = ({
-  image,
-  iconName,
   title,
   subTitle,
+  image,
+  IconComponent,
   onPress,
   renderRightActions,
-  color,
 }) => {
   return (
     <Swipeable renderRightActions={renderRightActions}>
       <TouchableHighlight onPress={onPress} underlayColor={colors.light}>
         <View style={styles.container}>
+          {IconComponent}
           {image && <Image style={styles.image} source={image} />}
-          {iconName && (
-            <View style={[styles.icon, { backgroundColor: color }]}>
-              <MaterialCommunityIcons
-                name={iconName}
-                size={25}
-                color={colors.white}
-              />
-            </View>
-          )}
-          <View>
+          <View style={styles.detailsContainer}>
             <AppText style={styles.title}>{title}</AppText>
-            <AppText style={styles.subTitle}>{subTitle}</AppText>
+            {subTitle && <AppText style={styles.subTitle}>{subTitle}</AppText>}
           </View>
         </View>
       </TouchableHighlight>
@@ -42,23 +33,17 @@ const ListItem = ({
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    margin: 15,
+    padding: 15,
+    backgroundColor: colors.white,
   },
-  icon: {
-    width: 40,
-    height: 40,
-    borderRadius: "50%",
-    marginRight: 10,
+  detailsContainer: {
+    marginLeft: 10,
     justifyContent: "center",
-    alignItems: "center",
-    // color: colors.white,
-    // borderRadius: 18,
   },
   image: {
     width: 70,
     height: 70,
     borderRadius: 35,
-    marginRight: 10,
   },
   title: {
     fontWeight: "500",
