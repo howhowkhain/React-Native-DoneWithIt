@@ -4,19 +4,14 @@ import Screen from "./app/components/Screen";
 import colors from "./app/config/colors";
 import { useState } from "react";
 
-import AppPicker from "./app/components/AppPicker";
+import LoginScreen from "./app/screens/LoginScreen";
 
 export default function App() {
   const [category, setCategory] = useState(null);
 
   return (
     <Screen style={styles.screen}>
-      <AppPicker
-        placeholder={"Category"}
-        icon="apps"
-        selecteItem={category}
-        onSelectedItem={(item) => setCategory(item)}
-      />
+      <LoginScreen />
     </Screen>
   );
 }
