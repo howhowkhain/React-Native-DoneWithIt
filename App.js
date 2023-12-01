@@ -1,18 +1,15 @@
-import { StyleSheet, TextInput } from "react-native";
+import { StyleSheet, Switch, TextInput } from "react-native";
 
 import Screen from "./app/components/Screen";
 import colors from "./app/config/colors";
 import AppTextInput from "./app/components/AppTextInput";
+import { useState } from "react";
 
 export default function App() {
+  const [isNew, setIsNew] = useState(false);
   return (
     <Screen style={styles.screen}>
-      <AppTextInput icon={"email"} placeholder={"First Name"} />
-      {/* <TextInput
-        placeholder="First Name"
-        maxLength={5}
-        keyboardType="numeric"
-      ></TextInput> */}
+      <Switch value={isNew} onValueChange={(newValue) => setIsNew(newValue)} />
     </Screen>
   );
 }
