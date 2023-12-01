@@ -2,14 +2,21 @@ import { StyleSheet, Switch, TextInput } from "react-native";
 
 import Screen from "./app/components/Screen";
 import colors from "./app/config/colors";
-import AppTextInput from "./app/components/AppTextInput";
 import { useState } from "react";
 
+import AppPicker from "./app/components/AppPicker";
+
 export default function App() {
-  const [isNew, setIsNew] = useState(false);
+  const [category, setCategory] = useState(null);
+
   return (
     <Screen style={styles.screen}>
-      <Switch value={isNew} onValueChange={(newValue) => setIsNew(newValue)} />
+      <AppPicker
+        placeholder={"Category"}
+        icon="apps"
+        selecteItem={category}
+        onSelectedItem={(item) => setCategory(item)}
+      />
     </Screen>
   );
 }
