@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { Image, StyleSheet } from "react-native";
-import AppTextInput from "../components/AppTextInput";
-import AppButton from "../components/AppButton";
 import { Formik } from "formik";
 import * as Yup from "yup";
-import AppText from "../components/AppText/AppText";
+import AppButton from "../components/AppButton";
+import AppTextInput from "../components/AppTextInput";
+import ErrorMessage from "../components/ErrorMessage";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label("Email"),
@@ -20,30 +20,32 @@ function LoginScreen(props) {
         onSubmit={(values) => console.log(values)}
         validationSchema={validationSchema}
       >
-        {({ handleChange, handleSubmit, errors }) => (
+        {({ handleChange, handleSubmit, errors, setFieldTouched, touched }) => (
           <>
             <AppTextInput
-              name="email"
               autoCapitalize={"none"}
               autoCorrect={false}
               icon={"email"}
               keyboardType={"email-address"}
+              name="email"
               onChangeText={handleChange("email")}
+              onBlur={() => setFieldTouched("email")}
               placeholder="Email"
               textContentType={"emailAddress"}
             />
-            <AppText style={{ color: "red" }}>{errors.email}</AppText>
+            <ErrorMessage error={errors.email} visible={touched.email} />
             <AppTextInput
-              name="password"
               autoCapitalize={"none"}
               autoCorrect={false}
               icon={"lock"}
-              placeholder="Password"
+              name="password"
               onChangeText={handleChange("password")}
-              textContentType={"password"}
+              onBlur={() => setFieldTouched("password")}
+              placeholder="Password"
               secureTextEntry={true}
+              textContentType={"password"}
             />
-            <AppText style={{ color: "red" }}>{errors.password}</AppText>
+            <ErrorMessage error={errors.password} visible={touched.password} />
             <AppButton title="Login" onPress={handleSubmit} />
           </>
         )}
