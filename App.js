@@ -5,13 +5,15 @@ import colors from "./app/config/colors";
 import { useState } from "react";
 
 import LoginScreen from "./app/screens/LoginScreen";
+import RegisterScreen from "./app/screens/RegisterScreen";
 
 export default function App() {
   const [category, setCategory] = useState(null);
 
   return (
     <Screen style={styles.screen}>
-      <LoginScreen />
+      {/* <LoginScreen /> */}
+      <RegisterScreen />
     </Screen>
   );
 }
