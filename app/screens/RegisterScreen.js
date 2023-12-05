@@ -45,7 +45,7 @@ function RegisterScreen(props) {
               secureTextEntry={true}
               textContentType={"password"}
             />
-            <SubmitButton title="Login" />
+            <SubmitButton title="Register" />
           </>
         }
       </AppForm>
