@@ -20,7 +20,7 @@ const selections = [
   { label: "Toys", value: 3 },
 ];
 
-function AppPicker({ icon, onSelectedItem, placeholder, selecteItem }) {
+function AppPicker({ icon, onSelectedItem, placeholder, selecteItem, style }) {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
@@ -36,7 +36,7 @@ function AppPicker({ icon, onSelectedItem, placeholder, selecteItem }) {
               style={styles.icon}
             />
           )}
-          <AppText style={styles.text}>
+          <AppText style={[styles.text, style]}>
             {selecteItem ? selecteItem.label : placeholder}
           </AppText>
           <MaterialCommunityIcons
