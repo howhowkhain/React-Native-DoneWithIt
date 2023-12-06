@@ -2,9 +2,9 @@ import { View, Image, StyleSheet, TouchableHighlight } from "react-native";
 import Swipeable from "react-native-gesture-handler/Swipeable";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-import AppText from "./AppText/AppText";
+import AppText from "../AppText/AppText";
 
-import colors from "../config/colors";
+import colors from "../../config/colors";
 
 const ListItem = ({
   title,
