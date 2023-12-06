@@ -1,9 +1,8 @@
-import React, { useState } from "react";
-import { StyleSheet } from "react-native";
+import React from "react";
 import * as Yup from "yup";
 import defaultStyles from "../config/styles";
 import { AppForm, AppFormField, SubmitButton } from "../components/forms";
-import AppPicker from "../components/AppPicker";
+import AppFormPicker from "../components/forms/AppFormPicker";
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label("Title"),
@@ -19,7 +18,6 @@ const validationSchema = Yup.object().shape({
 });
 
 function ListingEditScreen(props) {
-  const [selectedCategory, setSelectedCategory] = useState();
   return (
     <>
       <AppForm
@@ -49,9 +47,8 @@ function ListingEditScreen(props) {
               placeholder="Price"
               textContentType={"none"}
             />
-            <AppPicker
-              onSelectedItem={(item) => setSelectedCategory(item)}
-              selecteItem={selectedCategory}
+            <AppFormPicker
+              name="category"
               placeholder={"Category"}
               style={{
                 ...defaultStyles.text,
