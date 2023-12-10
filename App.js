@@ -7,6 +7,10 @@ import { useState } from "react";
 import LoginScreen from "./app/screens/LoginScreen";
 import RegisterScreen from "./app/screens/RegisterScreen";
 import ListingEditScreen from "./app/screens/ListingEditScreen";
+import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
+import ListingsScreen from "./app/screens/ListingsScreen";
+import MessagesScreen from "./app/screens/MessagesScreen";
 
 export default function App() {
   const [category, setCategory] = useState(null);
@@ -16,6 +20,9 @@ export default function App() {
       {/* <LoginScreen /> */}
       {/* <RegisterScreen /> */}
       <ListingEditScreen />
+      {/* <GestureHandlerRootView>
+        <MessagesScreen />
+      </GestureHandlerRootView> */}
     </Screen>
   );
 }

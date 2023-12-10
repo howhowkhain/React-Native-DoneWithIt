@@ -13,17 +13,33 @@ const ListItem = ({
   IconComponent,
   onPress,
   renderRightActions,
+  showChevron = false,
 }) => {
   return (
     <Swipeable renderRightActions={renderRightActions}>
       <TouchableHighlight onPress={onPress} underlayColor={colors.light}>
         <View style={styles.container}>
-          {IconComponent}
-          {image && <Image style={styles.image} source={image} />}
-          <View style={styles.detailsContainer}>
-            <AppText style={styles.title}>{title}</AppText>
-            {subTitle && <AppText style={styles.subTitle}>{subTitle}</AppText>}
+          <View style={styles.leftContainer}>
+            {IconComponent}
+            {image && <Image style={styles.image} source={image} />}
+            <View style={styles.detailsContainer}>
+              <AppText style={styles.title}>{title}</AppText>
+              {subTitle && (
+                <AppText style={styles.subTitle} numberOfLines={8}>
+                  {subTitle}
+                </AppText>
+              )}
+            </View>
           </View>
+          {showChevron && (
+            <View style={styles.chevron}>
+              <MaterialCommunityIcons
+                name="chevron-right"
+                size={32}
+                color={colors.medium}
+              />
+            </View>
+          )}
         </View>
       </TouchableHighlight>
     </Swipeable>
@@ -31,10 +47,14 @@ const ListItem = ({
 };
 
 const styles = StyleSheet.create({
+  chevron: {
+    justifyContent: "center",
+  },
   container: {
     flexDirection: "row",
     padding: 15,
     backgroundColor: colors.white,
+    justifyContent: "space-between",
   },
   detailsContainer: {
     marginLeft: 10,
@@ -44,6 +64,9 @@ const styles = StyleSheet.create({
     width: 70,
     height: 70,
     borderRadius: 35,
+  },
+  leftContainer: {
+    flexDirection: "row",
   },
   title: {
     fontWeight: "500",

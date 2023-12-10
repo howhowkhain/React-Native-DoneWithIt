@@ -3,8 +3,12 @@ import { Text } from "react-native";
 
 import defaultStyles from "../../config/styles";
 
-function AppText({ children, style }) {
-  return <Text style={[style, defaultStyles.text]}>{children}</Text>;
+function AppText({ children, numberOfLines, style }) {
+  return (
+    <Text style={[style, defaultStyles.text]} numberOfLines={numberOfLines}>
+      {children}
+    </Text>
+  );
 }
 
 export default AppText;

@@ -48,11 +48,13 @@ function ListingEditScreen(props) {
               keyboardType={"numeric"}
               name="price"
               placeholder="Price"
+              width={"30%"}
             />
             <Picker
               items={categories}
               name="category"
               placeholder={"Category"}
+              width={"50%"}
               style={{
                 ...defaultStyles.text,
               }}
