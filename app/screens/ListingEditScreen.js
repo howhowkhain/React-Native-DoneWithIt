@@ -1,8 +1,18 @@
 import React from "react";
 import * as Yup from "yup";
 import defaultStyles from "../config/styles";
-import { AppForm, AppFormField, SubmitButton } from "../components/forms";
-import AppFormPicker from "../components/forms/AppFormPicker";
+import {
+  AppForm,
+  AppFormField as FormField,
+  AppFormPicker as Picker,
+  SubmitButton,
+} from "../components/forms";
+
+const categories = [
+  { label: "Furniture", value: 1 },
+  { label: "Clothing", value: 2 },
+  { label: "Toys", value: 3 },
+];
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label("Title"),
@@ -13,7 +23,7 @@ const validationSchema = Yup.object().shape({
     .min(1)
     .max(10000)
     .label("Price"),
-  category: Yup.object().required().label("Category"),
+  category: Yup.object().required().nullable().label("Category"),
   description: Yup.string().label("Description"),
 });
 
@@ -32,42 +42,27 @@ function ListingEditScreen(props) {
       >
         {
           <>
-            <AppFormField
-              autoCapitalize={"none"}
-              autoCorrect={false}
-              name="title"
-              placeholder="Title"
-              textContentType={"jobTitle"}
-            />
-            <AppFormField
-              autoCapitalize={"none"}
-              autoCorrect={false}
+            <FormField maxLength={255} name="title" placeholder="Title" />
+            <FormField
+              maxLength={8}
               keyboardType={"numeric"}
               name="price"
               placeholder="Price"
-              textContentType={"none"}
             />
-            <AppFormPicker
+            <Picker
+              items={categories}
               name="category"
               placeholder={"Category"}
               style={{
                 ...defaultStyles.text,
-                color: defaultStyles.colors.medium,
               }}
             />
-            {/* <AppFormField
-              autoCapitalize={"none"}
-              autoCorrect={false}
-              name="title"
-              placeholder="Title"
-              textContentType={"emailAddress"}
-            /> */}
-            <AppFormField
-              autoCapitalize={"none"}
-              autoCorrect={false}
+            <FormField
+              maxLength={255}
+              multiline
+              numberOfLines={3}
               name="description"
               placeholder="Description"
-              textContentType={"none"}
             />
             <SubmitButton title="Post" />
           </>
