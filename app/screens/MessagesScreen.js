@@ -14,7 +14,8 @@ const initalMessages = [
   {
     id: 2,
     title: "T2",
-    description: "D2",
+    description:
+      "D2gfsddssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssswrrrrrrrrrrrr",
     image: require("../assets/mosh.jpg"),
   },
 ];

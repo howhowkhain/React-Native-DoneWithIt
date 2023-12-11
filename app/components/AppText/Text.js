@@ -3,9 +3,9 @@ import { Text } from "react-native";
 
 import defaultStyles from "../../config/styles";
 
-function AppText({ children, numberOfLines, style }) {
+function AppText({ children, style, ...otherProps }) {
   return (
-    <Text style={[style, defaultStyles.text]} numberOfLines={numberOfLines}>
+    <Text style={[style, defaultStyles.text]} {...otherProps}>
       {children}
     </Text>
   );
