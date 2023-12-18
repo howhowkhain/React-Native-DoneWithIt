@@ -1,6 +1,6 @@
 import React from "react";
 import { FlatList } from "react-native";
-import AppCard from "../components/AppCard";
+import Card from "../components/Card";
 
 const listings = [
   {
@@ -23,7 +23,7 @@ function ListingsScreen(props) {
       data={listings}
       keyExtractor={(listing) => listing.id.toString()}
       renderItem={({ item }) => (
-        <AppCard
+        <Card
           title={item.title}
           subTitle={"$" + item.price}
           image={item.image}

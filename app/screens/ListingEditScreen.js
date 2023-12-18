@@ -2,9 +2,9 @@ import React from "react";
 import * as Yup from "yup";
 import defaultStyles from "../config/styles";
 import {
-  AppForm,
-  AppFormField as FormField,
-  AppFormPicker as Picker,
+  Form,
+  FormField,
+  FormPicker as Picker,
   SubmitButton,
 } from "../components/forms";
 import CategoryPickerItem from "../components/CategoryPickerItem";
@@ -50,7 +50,7 @@ const validationSchema = Yup.object().shape({
 function ListingEditScreen(props) {
   return (
     <>
-      <AppForm
+      <Form
         initialValues={{
           title: "",
           price: "",
@@ -91,7 +91,7 @@ function ListingEditScreen(props) {
             <SubmitButton title="Post" />
           </>
         }
-      </AppForm>
+      </Form>
     </>
   );
 }

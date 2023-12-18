@@ -1,9 +1,9 @@
 import React from "react";
-import AppPicker from "../AppPicker";
+import Picker from "../Picker";
 import ErrorMessage from "./ErrorMessage";
 import { useFormikContext } from "formik";
 
-function AppFormPicker({
+function FormPicker({
   name,
   items,
   numberOfColumns,
@@ -15,7 +15,7 @@ function AppFormPicker({
 
   return (
     <>
-      <AppPicker
+      <Picker
         items={items}
         numberOfColumns={numberOfColumns}
         PickerItemComponent={PickerItemComponent}
@@ -29,4 +29,4 @@ function AppFormPicker({
   );
 }
 
-export default AppFormPicker;
+export default FormPicker;

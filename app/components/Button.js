@@ -1,7 +1,7 @@
 import { Text, StyleSheet, Pressable } from "react-native";
 import colors from "../config/colors";
 
-function AppButton({ title, onPress, color = "primary" }) {
+function Button({ title, onPress, color = "primary" }) {
   return (
     <Pressable
       style={[styles.button, { backgroundColor: colors[color] }]}
@@ -29,4 +29,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default AppButton;
+export default Button;

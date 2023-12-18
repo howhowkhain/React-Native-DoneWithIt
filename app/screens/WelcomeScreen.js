@@ -10,7 +10,7 @@ import {
 } from "react-native";
 
 import colors from "../config/colors";
-import AppButton from "../components/AppButton";
+import Button from "../components/Button";
 
 function WelcomeScreen() {
   const { width, height } = useWindowDimensions();
@@ -26,8 +26,8 @@ function WelcomeScreen() {
         <Text style={styles.tagline}>Sell What You Don't Need</Text>
       </View>
       <View style={styles.buttonsContainer}>
-        <AppButton title="Login" onPress={() => console.log("Login")} />
-        <AppButton
+        <Button title="Login" onPress={() => console.log("Login")} />
+        <Button
           title="Register"
           onPress={() => console.log("Register")}
           color="secondary"
