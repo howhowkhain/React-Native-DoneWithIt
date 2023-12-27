@@ -61,6 +61,7 @@ function Picker({
           renderItem={({ item }) => (
             <PickerItemComponent
               item={item}
+              label={item.label}
               onPress={() => {
                 setModalVisible(false);
                 onSelectedItem(item);
