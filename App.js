@@ -36,14 +36,14 @@ export default function App() {
 
   return (
     <Screen style={styles.screen}>
-      <ImageInputList
+      {/* <ImageInputList
         imageUris={imageUris}
         onAddImage={handleAdd}
         onRemoveImage={handleRemove}
-      />
+      /> */}
       {/* <LoginScreen /> */}
       {/* <RegisterScreen /> */}
-      {/* <ListingEditScreen /> */}
+      <ListingEditScreen />
       {/* <GestureHandlerRootView>
         <MessagesScreen />
       </GestureHandlerRootView> */}
