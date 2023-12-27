@@ -19,44 +19,27 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 import ListingsScreen from "./app/screens/ListingsScreen";
 import MessagesScreen from "./app/screens/MessagesScreen";
 import * as ImagePicker from "expo-image-picker";
+import ImageInput from "./app/components/ImageInput";
+import ImageInputList from "./app/components/ImageInputList";
 
 export default function App() {
   const [category, setCategory] = useState(null);
-  const [imageAssets, setImageAssets] = useState(null);
+  const [imageUris, setImageUris] = useState([]);
 
-  const requestPermissions = async () => {
-    const { granted } = await ImagePicker.requestMediaLibraryPermissionsAsync();
-    if (!granted) alert("You need to enable permission to access the library.");
+  const handleAdd = (uri) => {
+    setImageUris([...imageUris, uri]);
   };
 
-  useEffect(() => {
-    requestPermissions();
-  }, []);
-
-  const selectImage = async () => {
-    try {
-      const result = await ImagePicker.launchImageLibraryAsync();
-      if (!result.canceled) {
-        console.log(result.assets);
-        setImageAssets(result.assets);
-      }
-    } catch (error) {
-      console.log("Error for selecting an image", error);
-    }
+  const handleRemove = (uri) => {
+    setImageUris(imageUris.filter((imageUri) => imageUri !== uri));
   };
 
   return (
     <Screen style={styles.screen}>
-      <Button title="Select Image" onPress={selectImage} />
-      <FlatList
-        data={imageAssets}
-        keyExtractor={(item) => item.uri}
-        renderItem={({ item }) => (
-          <Image
-            source={{ uri: item.uri }}
-            style={{ width: 200, height: 200 }}
-          />
-        )}
+      <ImageInputList
+        imageUris={imageUris}
+        onAddImage={handleAdd}
+        onRemoveImage={handleRemove}
       />
       {/* <LoginScreen /> */}
       {/* <RegisterScreen /> */}
