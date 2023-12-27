@@ -35,7 +35,7 @@ const Link = () => {
 const Tweets = ({ navigation }) => {
   return (
     <Screen>
-      <Text>Tweets</Text>
+      <Text>Tweet</Text>
       <Button
         title="View Tweet"
         onPress={() => navigation.navigate("TweetDetails", { id: 1 })}
@@ -57,9 +57,27 @@ const StackNavigator = () => {
   const Stack = createNativeStackNavigator();
 
   return (
-    <Stack.Navigator initialRouteName="Tweets">
-      <Stack.Screen name="Tweet" component={Tweets} />
-      <Stack.Screen name="TweetDetails" component={TweetDetails} />
+    <Stack.Navigator
+      initialRouteName="Tweets"
+      screenOptions={{
+        headerStyle: { backgroundColor: "dodgerblue" },
+        headerTintColor: "white",
+      }}
+    >
+      <Stack.Screen
+        name="Tweets"
+        component={Tweets}
+        options={{
+          headerStyle: { backgroundColor: "tomato" },
+          headerTintColor: "white",
+          headerShown: true,
+        }}
+      />
+      <Stack.Screen
+        name="TweetDetails"
+        component={TweetDetails}
+        options={({ route }) => ({ title: `Tweet ${route.params.id}` })}
+      />
     </Stack.Navigator>
   );
 };
