@@ -14,8 +14,8 @@ import Screen from "./app/components/Screen";
 import colors from "./app/config/colors";
 import { useEffect, useState } from "react";
 
-import LoginScreen from "./app/screens/LoginScreen";
-import RegisterScreen from "./app/screens/RegisterScreen";
+// import LoginScreen from "./app/screens/LoginScreen";
+// import RegisterScreen from "./app/screens/RegisterScreen";
 import ListingEditScreen from "./app/screens/ListingEditScreen";
 import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
@@ -28,6 +28,8 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import AuthNavigator from "./app/navigation/AuthNavigator";
+import navigationTheme from "./app/navigation/navigationTheme";
 
 const Link = () => {
   const navigation = useNavigation();
@@ -133,9 +135,10 @@ export default function App() {
   // };
 
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={navigationTheme}>
       {/* <StackNavigator /> */}
-      <TabNavigator />
+      {/* <TabNavigator /> */}
+      <AuthNavigator />
     </NavigationContainer>
     // <Screen style={styles.screen}>
     //   {/* <ImageInputList

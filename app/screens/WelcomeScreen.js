@@ -4,16 +4,15 @@ import {
   View,
   Text,
   Image,
-  Button,
   useWindowDimensions,
   Platform,
 } from "react-native";
 
-import colors from "../config/colors";
 import Button from "../components/Button";
 
-function WelcomeScreen() {
+function WelcomeScreen({ navigation }) {
   const { width, height } = useWindowDimensions();
+
   return (
     <ImageBackground
       style={styles.background}
@@ -26,10 +25,10 @@ function WelcomeScreen() {
         <Text style={styles.tagline}>Sell What You Don't Need</Text>
       </View>
       <View style={styles.buttonsContainer}>
-        <Button title="Login" onPress={() => console.log("Login")} />
+        <Button title="Login" onPress={() => navigation.navigate("Login")} />
         <Button
           title="Register"
-          onPress={() => console.log("Register")}
+          onPress={() => navigation.navigate("Register")}
           color="secondary"
         />
       </View>
