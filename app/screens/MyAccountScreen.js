@@ -1,12 +1,13 @@
 import React from "react";
 import { View, FlatList, StyleSheet } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 import colors from "../config/colors";
 
 import ListItem from "../components/lists/ListItem";
-import Icon from "../components/Icon";
 import ListItemSeparator from "../components/lists/ListItemSeparator";
+import Icon from "../components/Icon";
 
 const menuItems = [
   {
@@ -33,39 +34,41 @@ function MyAccountScreen(props) {
     //   iconColor={colors.white}
     //   backgroundColor={colors.primary}
     // />
-    <View>
-      <View style={styles.container}>
-        <ListItem
-          title="Mosh Hamedani"
-          subTitle={"programmingwithmosh@gmail.com"}
-          image={require("../assets/mosh.jpg")}
-        />
-      </View>
-      <FlatList
-        data={menuItems}
-        keyExtractor={(menuItem) => menuItem.title}
-        renderItem={({ item }) => (
+    <GestureHandlerRootView>
+      <View>
+        <View style={styles.container}>
           <ListItem
-            title={item.title}
+            title="Mosh Hamedani"
+            subTitle={"programmingwithmosh@gmail.com"}
+            image={require("../assets/mosh.jpg")}
+          />
+        </View>
+        <FlatList
+          data={menuItems}
+          keyExtractor={(menuItem) => menuItem.title}
+          renderItem={({ item }) => (
+            <ListItem
+              title={item.title}
+              IconComponent={
+                <Icon
+                  name={item.icon.name}
+                  backgroundColor={item.icon.backgroundColor}
+                />
+              }
+            />
+          )}
+          ItemSeparatorComponent={ListItemSeparator}
+        />
+        <View style={styles.container}>
+          <ListItem
+            title={"Log Out"}
             IconComponent={
-              <Icon
-                name={item.icon.name}
-                backgroundColor={item.icon.backgroundColor}
-              />
+              <Icon name={"logout"} backgroundColor={colors.lemon} />
             }
           />
-        )}
-        ItemSeparatorComponent={ListItemSeparator}
-      />
-      <View style={styles.container}>
-        <ListItem
-          title={"Log Out"}
-          IconComponent={
-            <Icon name={"logout"} backgroundColor={colors.lemon} />
-          }
-        />
+        </View>
       </View>
-    </View>
+    </GestureHandlerRootView>
   );
 }
 
