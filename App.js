@@ -24,6 +24,7 @@ import ImageInput from "./app/components/ImageInput";
 import ImageInputList from "./app/components/ImageInputList";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 const Link = () => {
   const navigation = useNavigation();
@@ -49,6 +50,14 @@ const TweetDetails = ({ route }) => {
   return (
     <Screen>
       <Text>Tweet Details {route.params.id}</Text>
+    </Screen>
+  );
+};
+
+const Account = () => {
+  return (
+    <Screen>
+      <Text>Account</Text>
     </Screen>
   );
 };
@@ -82,6 +91,16 @@ const StackNavigator = () => {
   );
 };
 
+const TabNavigator = () => {
+  const Tab = createBottomTabNavigator();
+  return (
+    <Tab.Navigator>
+      <Tab.Screen name="Feed" component={Tweets} />
+      <Tab.Screen name="Account" component={Account} />
+    </Tab.Navigator>
+  );
+};
+
 export default function App() {
   const [category, setCategory] = useState(null);
   const [imageUris, setImageUris] = useState([]);
@@ -96,7 +115,8 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <StackNavigator />
+      {/* <StackNavigator /> */}
+      <TabNavigator />
     </NavigationContainer>
     // <Screen style={styles.screen}>
     //   {/* <ImageInputList
