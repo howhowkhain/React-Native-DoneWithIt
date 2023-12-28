@@ -1,3 +1,5 @@
+import "react-native-gesture-handler";
+
 import {
   Button,
   FlatList,
@@ -22,7 +24,7 @@ import MessagesScreen from "./app/screens/MessagesScreen";
 import * as ImagePicker from "expo-image-picker";
 import ImageInput from "./app/components/ImageInput";
 import ImageInputList from "./app/components/ImageInputList";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
@@ -64,7 +66,7 @@ const Account = () => {
 };
 
 const StackNavigator = () => {
-  const Stack = createNativeStackNavigator();
+  const Stack = createStackNavigator();
 
   return (
     <Stack.Navigator
@@ -80,7 +82,7 @@ const StackNavigator = () => {
         options={{
           headerStyle: { backgroundColor: "tomato" },
           headerTintColor: "white",
-          headerShown: true,
+          headerShown: false,
         }}
       />
       <Stack.Screen
@@ -106,7 +108,7 @@ const TabNavigator = () => {
     >
       <Tab.Screen
         name="Feed"
-        component={Tweets}
+        component={StackNavigator}
         options={{
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="home" color={color} size={size} />
