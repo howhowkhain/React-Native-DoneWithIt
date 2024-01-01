@@ -2,11 +2,11 @@ import { View, StyleSheet, Image, Pressable } from "react-native";
 import colors from "../config/colors";
 import Text from "./AppText/Text";
 
-const Card = ({ title, subTitle, image, onPress }) => {
+const Card = ({ title, subTitle, imageUrl, onPress }) => {
   return (
     <Pressable onPress={onPress}>
       <View style={styles.card}>
-        <Image style={styles.image} source={image} />
+        <Image style={styles.image} source={{ uri: imageUrl }} />
         <View style={styles.detailsContainer}>
           <Text style={styles.title}>{title}</Text>
           <Text style={styles.subTitle}>{subTitle}</Text>
