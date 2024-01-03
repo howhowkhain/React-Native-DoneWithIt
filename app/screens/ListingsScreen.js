@@ -6,6 +6,7 @@ import listingsApi from "../api/listings";
 import AppText from "../components/AppText/Text";
 import Screen from "../components/Screen";
 import Button from "../components/Button";
+import styles from "../config/styles";
 
 function ListingsScreen({ navigation }) {
   const [listings, setListings] = useState([]);
@@ -17,14 +18,13 @@ function ListingsScreen({ navigation }) {
 
   const loadListings = async () => {
     const response = await listingsApi.getListings();
-    console.log(response);
     if (!response.ok) return setError(true);
     setError(false);
     setListings(response.data);
   };
 
   return (
-    <>
+    <Screen style={styles}>
       {error && (
         <>
           <AppText>Couldn't retrieve the listings</AppText>
@@ -43,7 +43,7 @@ function ListingsScreen({ navigation }) {
           />
         )}
       />
-    </>
+    </Screen>
   );
 }
 

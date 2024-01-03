@@ -6,7 +6,9 @@ import routes from "./routes";
 const Stack = createStackNavigator();
 
 const FeedNavigator = () => (
-  <Stack.Navigator screenOptions={{ presentation: "modal" }}>
+  <Stack.Navigator
+    screenOptions={{ presentation: "modal", headerShown: false }}
+  >
     <Stack.Screen
       name={routes.LISTINGS}
       component={ListingsScreen}
@@ -14,7 +16,6 @@ const FeedNavigator = () => (
     <Stack.Screen
       name={routes.LISTING_DETAILS}
       component={ListingDetailsScreen}
-      options={{ headerShown: true }}
     ></Stack.Screen>
   </Stack.Navigator>
 );
