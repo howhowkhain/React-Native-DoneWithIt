@@ -7,6 +7,7 @@ import AppText from "../components/AppText/Text";
 import Screen from "../components/Screen";
 import Button from "../components/Button";
 import styles from "../config/styles";
+import { ActivityIndicator } from "react-native";
 
 function ListingsScreen({ navigation }) {
   const [listings, setListings] = useState([]);
@@ -31,6 +32,7 @@ function ListingsScreen({ navigation }) {
           <Button title="Retry" onPress={loadListings} />
         </>
       )}
+      <ActivityIndicator animating={true} size="large" />
       <FlatList
         data={listings}
         keyExtractor={(listing) => listing.id.toString()}
