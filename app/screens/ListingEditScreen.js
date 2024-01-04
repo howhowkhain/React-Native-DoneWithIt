@@ -59,8 +59,8 @@ function ListingEditScreen(props) {
         initialValues={{
           title: "",
           price: "",
-          description: "",
           category: null,
+          description: "",
           images: [],
         }}
         onSubmit={(values) => console.log(location)}
