@@ -11,6 +11,9 @@ import CategoryPickerItem from "../components/CategoryPickerItem";
 import FormImagePicker from "../components/forms/FormImagePicker";
 import useLocation from "../hooks/useLocation";
 import listingsApi from "../api/listings";
+import UploadScreen from "./UploadScreen";
+import Screen from "../components/Screen";
+import { StyleSheet } from "react-native";
 
 const categories = [
   {
@@ -54,22 +57,30 @@ const validationSchema = Yup.object().shape({
 function ListingEditScreen(props) {
   const location = useLocation();
 
+  const [uploadVisible, setUploadVisible] = useState(false);
+  const [progress, setProgress] = useState(0);
+
   const onUploadProgress = (progress) => {
-    console.log(progress);
+    setProgress(progress);
   };
 
   const handleSubmit = async (listing) => {
+    setUploadVisible(true);
     const result = await listingsApi.addListing(
       { ...listing, location },
       onUploadProgress
     );
+    setUploadVisible(false);
+    setProgress(0);
+
     if (!result.ok) return alert("Could not save the listing.");
 
     alert("Success");
   };
 
   return (
-    <>
+    <Screen style={styles.container}>
+      <UploadScreen visible={uploadVisible} progress={progress} />
       <Form
         initialValues={{
           title: "",
@@ -114,8 +125,14 @@ function ListingEditScreen(props) {
           </>
         }
       </Form>
-    </>
+    </Screen>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    padding: 10,
+  },
+});
 
 export default ListingEditScreen;
