@@ -14,7 +14,7 @@ function UploadScreen({ progress = 0, visible = false }) {
 
 const styles = StyleSheet.create({
   container: {
-    fles: 1,
+    flex: 1,
     alignItems: "center",
     justifyContent: "center",
   },
