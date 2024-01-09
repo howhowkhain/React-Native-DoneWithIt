@@ -32,6 +32,7 @@ import AuthNavigator from "./app/navigation/AuthNavigator";
 import navigationTheme from "./app/navigation/navigationTheme";
 import AppNavigator from "./app/navigation/AppNavigator";
 import NetInfo, { useNetInfo } from "@react-native-community/netinfo";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const Link = () => {
   const navigation = useNavigation();
@@ -127,6 +128,20 @@ const TabNavigator = () => {
 export default function App() {
   const netInfo = useNetInfo();
   console.log(netInfo);
+
+  const demo = async () => {
+    try {
+      await AsyncStorage.setItem("person", JSON.stringify({ id: 1 }));
+      const value = await AsyncStorage.getItem("person");
+      const person = JSON.parse(value);
+      console.log(person);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  demo();
+
   // const [category, setCategory] = useState(null);
   // const [imageUris, setImageUris] = useState([]);
 
