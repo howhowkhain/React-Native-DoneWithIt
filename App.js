@@ -31,6 +31,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import AuthNavigator from "./app/navigation/AuthNavigator";
 import navigationTheme from "./app/navigation/navigationTheme";
 import AppNavigator from "./app/navigation/AppNavigator";
+import NetInfo, { useNetInfo } from "@react-native-community/netinfo";
 
 const Link = () => {
   const navigation = useNavigation();
@@ -124,8 +125,10 @@ const TabNavigator = () => {
 };
 
 export default function App() {
-  const [category, setCategory] = useState(null);
-  const [imageUris, setImageUris] = useState([]);
+  const netInfo = useNetInfo();
+  console.log(netInfo);
+  // const [category, setCategory] = useState(null);
+  // const [imageUris, setImageUris] = useState([]);
 
   // const handleAdd = (uri) => {
   //   setImageUris([...imageUris, uri]);
